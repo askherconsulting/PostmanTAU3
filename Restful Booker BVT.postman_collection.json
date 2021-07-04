@@ -1246,8 +1246,7 @@
 							"pm.test(\"Ping is successful\", function () {",
 							"    pm.response.to.be.success;",
 							"});",
-							"",
-							"postman.setNextRequest(null);"
+							"";"
 						],
 						"type": "text/javascript"
 					}
@@ -1406,8 +1405,8 @@
 					"    \"additionalneeds\" : pm.variables.get(\"additionalneeds\")",
 					"}",
 					"pm.variables.set(\"new_booking\", booking)",
-					"",
-					"postman.setNextRequest(\"Ping\")"
+					""
+					"
 				]
 			}
 		},
