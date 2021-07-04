@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "be8b1237-dbb0-4579-ad5e-10ccddb8b3f8",
+		"_postman_id": "d150e655-4d9c-4ba1-a591-611dfdfeef68",
 		"name": "Restful Booker BVT",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1119,6 +1119,36 @@
 			]
 		},
 		{
+			"name": "Ping",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Ping is successful\", function () {",
+							"    pm.response.to.be.success;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{rb_url}}/ping",
+					"host": [
+						"{{rb_url}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Auth",
 			"event": [
 				{
@@ -1144,11 +1174,6 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json"
-					},
-					{
-						"key": "x-mock-response-name",
-						"value": "Auth Missing Token",
-						"type": "text"
 					}
 				],
 				"body": {
@@ -1162,106 +1187,6 @@
 					],
 					"path": [
 						"auth"
-					]
-				}
-			},
-			"response": [
-				{
-					"name": "Auth",
-					"originalRequest": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\" : \"admin\",\n    \"password\" : \"password123\"\n}"
-						},
-						"url": {
-							"raw": "{{rb_url}}/auth",
-							"host": [
-								"{{rb_url}}"
-							],
-							"path": [
-								"auth"
-							]
-						}
-					},
-					"status": "Bad Request",
-					"code": 400,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": "{\r\n    \"token\": \"597f2db0a4ecdff\"\r\n}"
-				},
-				{
-					"name": "Auth Missing Token",
-					"originalRequest": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\" : \"admin\",\n    \"password\" : \"password123\"\n}"
-						},
-						"url": {
-							"raw": "{{rb_url}}/auth",
-							"host": [
-								"{{rb_url}}"
-							],
-							"path": [
-								"auth"
-							]
-						}
-					},
-					"status": "Bad Request",
-					"code": 400,
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"body": "{\r\n    \"token\": \"\"\r\n}"
-				}
-			]
-		},
-		{
-			"name": "Ping",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Ping is successful\", function () {",
-							"    pm.response.to.be.success;",
-							"});",
-							"";"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{rb_url}}/ping",
-					"host": [
-						"{{rb_url}}"
-					],
-					"path": [
-						"ping"
 					]
 				}
 			},
@@ -1404,9 +1329,7 @@
 					"    },",
 					"    \"additionalneeds\" : pm.variables.get(\"additionalneeds\")",
 					"}",
-					"pm.variables.set(\"new_booking\", booking)",
-					""
-					"
+					"pm.variables.set(\"new_booking\", booking)"
 				]
 			}
 		},
